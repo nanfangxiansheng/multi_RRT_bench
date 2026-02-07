@@ -56,9 +56,16 @@ Visualization examples can be found for rrt and rrt* in both 2 and 3 dimensions.
 pip install -e .
 ```
 
-评测文件路径在.**/examples/rrt_star/rrt_star_3d_with_random_obstacles_eval_bench.py**在其中对于node（转折点的数目），路径长度，花费时间和成功率进行了测评，对包括RRT star,RRTConnect,RRTStarBidirectionalHeuristic,RRT在设置评测次数为20次的时候得到结果如下：
+评测文件路径在.**/examples/rrt_star/rrt_star_3d_with_random_obstacles_eval_bench.py**。该任务随机设计障碍物，起点和终点，评测从起点到终点的路径规划效果。在其中对于node（转折点的数目），路径长度，花费时间和成功率进行了测评，对包括RRT star,RRTConnect,RRTStarBidirectionalHeuristic,RRT在设置评测次数为20次的时候得到结果如下：
 
 ![](./figure/fig1.png)
 
 可见在四种RRT算法中，RRT Bid获得的效果最好。
 
+此外还设计了第二个任务，即多段路径规划，即先规划A->B,再规划B->C。该文件路径在：.**/examples/rrt_star/multi_point_eval_bench.py**
+
+用来模拟无人机先取货再送货的过程。一共要规划两次，评估其结果：
+
+![image-20260207080257505](./figure/fig2.png)
+
+可见，依旧是RRT Bid的效果最好（但是其时间花费相对较长）
